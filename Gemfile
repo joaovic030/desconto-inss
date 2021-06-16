@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Authentication
+gem 'devise', '~> 4.8'
 gem 'bootstrap', '~> 5.0.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,10 +38,14 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 4.1.0'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 2.18'
 end
 
 group :test do
   gem 'capybara', '~> 3.8'
+  gem 'selenium-webdriver', '3.12.0'
+  gem 'geckodriver-helper', '~> 0.24.0'
+  gem 'webdrivers', '< 4.1'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

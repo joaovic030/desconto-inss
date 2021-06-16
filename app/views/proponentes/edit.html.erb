@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-lg-10">
+      <h1> Editar Proponente </h1>
+    </div>
+    <div class="col-lg-2 text-end">
+      <%= link_to 'Voltar', proponentes_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render 'form', proponente: @proponente %>
+    </div>
+  </div>
+</div>

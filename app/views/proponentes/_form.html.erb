@@ -1,0 +1,66 @@
+<%= form_for(proponente) do |f| %>
+  <% if proponente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proponente.errors.count, "error") %> prohibited this proponente from being saved:</h2>
+
+      <ul>
+      <% proponente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="field col-lg-12">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field col-lg-6">
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf, class: 'form-control' %>
+    </div>
+
+    <div class="field col-lg-6">
+      <%= f.label :data_de_nascimento %>
+      <%= f.date_field :data_de_nascimento, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col-lg-3">
+      <%= f.label :telefone_pessoal %>
+      <%= f.text_field :telefone_pessoal, class: 'form-control' %>
+    </div>
+
+    <div class="field col-lg-3">
+      <%= f.label :telefone_referencias %>
+      <%= f.text_field :telefone_referencias, class: 'form-control' %>
+    </div>
+
+    <div class="field col-lg-3">
+      <%= f.label :salario %>
+      <%= f.text_field :salario, class: 'form-control', onblur: 'calcDescontoInss(this);' %>
+    </div>
+
+    <div class="field col-lg-3 desconto-inss-content">
+      <%= f.label :desconto_inss %>
+      <%= f.number_field :desconto_inss, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <h5 style="border-bottom: 1px solid #ddd; color: #255e86">
+    Endereço
+  </h5>
+  <div class="field">
+    <%= f.fields_for :endereco do |fe| %>
+      <%= render 'proponentes/endereco_fields', f: fe %>
+    <% end %>
+  </div>
+
+  <div class="actions mt-1">
+    <%= f.submit "#{proponente.persisted? ? "Atualizar" : "Criar" }", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: webtechti
-  password: '@a1234567'
+  username: postgres
+  password: '344312'
   host: localhost
   port: 5432
   pool: 5

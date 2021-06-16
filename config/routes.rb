@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :proponentes
+  resources :enderecos
+
+  get 'proponente/desconto_inss', to: 'proponentes#apply_desconto_inss', as: 'apply_desconto_inss'
+  root to: 'proponentes#index'
 end
